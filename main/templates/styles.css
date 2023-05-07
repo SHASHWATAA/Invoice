@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    color: black;
+    background-color: white;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0;
+    table-layout: fixed;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+button {
+    display: block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.container {
+    width: 50%;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.spinner, .checkmark {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em; /* adjust the size as needed */
+  height: 1em; /* adjust the size as needed */
+}
