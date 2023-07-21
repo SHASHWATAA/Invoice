@@ -156,7 +156,7 @@ async def invoice_generator(canvas_days, cyrus_days):
     await send_data("Connecting to deputy", "Completed")
 
     await send_data("Getting Week Dates", "Running....")
-    required_dates = get_week_dates(0)
+    required_dates = get_week_dates(1)
     table_data = get_worked_data(data, required_dates)
 
     await send_data("Getting Week Dates", "Completed")
@@ -190,7 +190,7 @@ async def invoice_generator(canvas_days, cyrus_days):
     await send_data("Converting Canvas Template To PDF", "Completed")
     await send_data("Converting Cyrus Template To PDF", "Running....")
     convert_to_pdf(cyrus_template)
-    jpype.shutdownJVM()
+    # jpype.shutdownJVM()
     await send_data("Converting Cyrus Template To PDF", "Completed")
 
     await send_data("Converting Cyrus PDF To Image", "Running....")
@@ -204,52 +204,4 @@ async def invoice_generator(canvas_days, cyrus_days):
 
 
 if __name__ == '__main__':
-    send_data("Connecting to deputy", "Running....")
-    data = timesheet_json.using_selenium()
-    send_data("Connecting to deputy", "Completed")
-
-    send_data("Getting Week Dates", "Running....")
-    required_dates = get_week_dates(1)
-    table_data = get_worked_data(data, required_dates)
-
-    send_data("Getting Week Dates", "Completed")
-
-    headings = ['Date', 'Day', "Time In", "Break Start", "Break End", "Time Out", "Total Hours", "worked_seconds"]
-    rate = 30
-    table = df.from_dict(table_data['data'])
-
-    # print(table)
-    canvas_template = "template_Canvas Home Interiors.xlsx"
-    cyrus_template = "template_Cyrus Rugs.xlsx"
-    canvas_days = ["Tuesday",]
-    cyrus_days = ["Monday", "Wednesday", "Friday", "Thursday"]
-
-    send_data("Writing Canvas Template", "Running....")
-
-    write_to_excel_template(canvas_template, table, rate, canvas_days)
-
-    send_data("Writing Canvas Template", "Completed")
-    send_data("Writing Cyrus Template", "Running....")
-
-    write_to_excel_template(cyrus_template, table, rate, cyrus_days)
-
-    send_data("Writing Cyrus Template", "Completed")
-
-    send_data("Converting Canvas Template To PDF", "Running....")
-
-    jpype.startJVM()
-    convert_to_pdf(canvas_template)
-    send_data("Converting Canvas Template To PDF", "Completed")
-    send_data("Converting Cyrus Template To PDF", "Running....")
-    convert_to_pdf(cyrus_template)
-    jpype.shutdownJVM()
-    send_data("Converting Cyrus Template To PDF", "Completed")
-
-    send_data("Converting Cyrus PDF To Image", "Running....")
-    convert_to_image("Canvas Home Interiors.pdf")
-    send_data("Converting Cyrus PDF To Image", "Completed")
-    send_data("Converting Canvas PDF To Image", "Running....")
-    convert_to_image("Cyrus Rugs.pdf")
-    send_data("Converting Canvas PDF To Image", "Completed")
-
     pass
