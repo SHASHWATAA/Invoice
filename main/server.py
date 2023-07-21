@@ -8,7 +8,8 @@ from send_message import send_data
 
 
 connected = set()
-
+# Throttling configuration
+message_delay = 0.5  # Delay between consecutive messages in seconds
 
 async def server(websocket, path):
     # Register.
@@ -23,7 +24,11 @@ async def server(websocket, path):
                     cyrus_days = json.loads(message)['Cyrus Rugs']
                     await invoice_generator(canvas_days, cyrus_days)
                     # await conn.send(f'{message}')
+
+
                 else:
+                    # Throttle outgoing messages
+                    await asyncio.sleep(message_delay)
                     await conn.send(f'{message}')
     except websockets.exceptions.ConnectionClosedOK as e:
         pass
