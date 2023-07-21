@@ -6,3 +6,4 @@ pyvenv.cfg
 main/Invoices/*
 main/__pycache__
 **/.DS_Store
+main/test
