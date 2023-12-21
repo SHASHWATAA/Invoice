@@ -65,3 +65,7 @@ button:disabled {
   width: 1em; /* adjust the size as needed */
   height: 1em; /* adjust the size as needed */
 }
+
+#messages .invoice {
+    height:100vh;
+}
