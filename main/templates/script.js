@@ -60,6 +60,20 @@ socket.addEventListener('message', function (event) {
             log('mas')
         }
     }
+  } else if (status === 'canvas_invoice') {
+        img_src = logMessage;
+        const canvas_invoice = document.createElement('img');
+        canvas_invoice.setAttribute('src', '.' + img_src);
+        canvas_invoice.setAttribute('class', 'invoice');
+        li.appendChild(canvas_invoice);
+        messages.appendChild(li);
+  } else if (status === 'cyrus_invoice') {
+        img_src = logMessage;
+        const canvas_invoice = document.createElement('img');
+        canvas_invoice.setAttribute('src', '.' + img_src);
+        canvas_invoice.setAttribute('class', 'invoice');
+        li.appendChild(canvas_invoice);
+        messages.appendChild(li);
   }
 
 
