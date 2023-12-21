@@ -14,6 +14,8 @@ async def send_data(message, status):
     pass
     # asyncio.new_event_loop().run_until_complete(send_message(message, status))
     asyncio.get_event_loop().run_until_complete(send_message(message, status))
+    print(message)
+    time.sleep(2)
     # await asyncio.create_task(send_message(message, status))
 
 
