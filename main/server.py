@@ -32,6 +32,8 @@ async def server(websocket, path):
                     await conn.send(f'{message}')
     except websockets.exceptions.ConnectionClosedOK as e:
         pass
+    except websockets.exceptions.ConnectionClosedError as e:
+        pass
     finally:
         # Unregister.
         connected.remove(websocket)
