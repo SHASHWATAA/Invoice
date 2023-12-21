@@ -2,52 +2,52 @@
 <html>
 <head>
 	<title>Work Schedule</title>
-<script src="script.js"></script>
-<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	<h1>Work Schedule</h1>
-	<form>
-		<table>
-			<tr>
-				<th></th>
-				<th>Canvas Home Interiors</th>
-				<th>Cyrus Rugs</th>
-			</tr>
-			<tr>
-				<td>Monday</td>
-				<td><input type="checkbox" name="Monday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)"></td>
-				<td><input type="checkbox" name="Monday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)" checked></td>
-			</tr>
-			<tr>
-				<td>Tuesday</td>
-				<td><input type="checkbox" name="Tuesday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)" checked></td>
-				<td><input type="checkbox" name="Tuesday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)"></td>
-			</tr>
-			<tr>
-				<td>Wednesday</td>
-				<td><input type="checkbox" name="Wednesday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)"></td>
-				<td><input type="checkbox" name="Wednesday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)" checked></td>
-			</tr>
-			<tr>
-				<td>Thursday</td>
-				<td><input type="checkbox" name="Thursday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)" checked></td>
-				<td><input type="checkbox" name="Thursday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)"></td>
-			</tr>
-			<tr>
-				<td>Friday</td>
-				<td><input type="checkbox" name="Friday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)"></td>
-				<td><input type="checkbox" name="Friday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)" checked></td>
-			</tr>
-		</table>
-	</form>
-	<div class="container">
-		<label><input type="checkbox" id="confirmCheckbox"> Confirm if I have updated my hours on Deputy</label>
-		<button id="outputButton" onclick="sendMsg()" disabled>Output Days</button>
-	</div>
+<h1>Work Schedule</h1>
+<form>
+    <table>
+        <tr>
+            <th></th>
+            <th>Canvas Home Interiors</th>
+            <th>Cyrus Rugs</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td><input type="checkbox" name="Monday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)"></td>
+            <td><input type="checkbox" name="Monday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)" checked></td>
+        </tr>
+        <tr>
+            <td>Tuesday</td>
+            <td><input type="checkbox" name="Tuesday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)" checked></td>
+            <td><input type="checkbox" name="Tuesday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)"></td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td><input type="checkbox" name="Wednesday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)"></td>
+            <td><input type="checkbox" name="Wednesday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)" checked></td>
+        </tr>
+        <tr>
+            <td>Thursday</td>
+            <td><input type="checkbox" name="Thursday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)" checked></td>
+            <td><input type="checkbox" name="Thursday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)"></td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td><input type="checkbox" name="Friday" data-company="Canvas Home Interiors" onchange="updateCheckboxes(this)"></td>
+            <td><input type="checkbox" name="Friday" data-company="Cyrus Rugs" onchange="updateCheckboxes(this)" checked></td>
+        </tr>
+    </table>
+</form>
+<div class="container">
+    <label><input type="checkbox" id="confirmCheckbox"> Confirm if I have updated my hours on Deputy</label>
+    <button id="outputButton" onclick="sendMsg()" disabled>Output Days</button>
+</div>
 
-	<ul id = "messages">
+<ul id="messages">
 
-	</ul>
+</ul>
 </body>
 </html>
