@@ -145,9 +145,10 @@ def convert_to_image(pdf_file_path):
     image = convert_from_path(pdf_file_path, dpi=200)[0]
     width, height = image.size
     image = image.crop((0, 200, width, height))
-    image.save("./Invoices/" + datetime.now().strftime("%d-%m-%Y") + " Invoice " + pdf_file_path.split(".")[0] + ".png",
-               "PNG")
-    pass
+    filename = "./Invoices/" + datetime.now().strftime("%d-%m-%Y") + " Invoice " + pdf_file_path.split(".")[0] + ".png"
+    image.save(filename,"PNG")
+
+    return filename
 
 
 async def invoice_generator(canvas_days, cyrus_days):
@@ -194,14 +195,15 @@ async def invoice_generator(canvas_days, cyrus_days):
     await send_data("Converting Cyrus Template To PDF", "Completed")
 
     await send_data("Converting Cyrus PDF To Image", "Running....")
-    convert_to_image("Canvas Home Interiors.pdf")
+    canvas_invoice = convert_to_image("Canvas Home Interiors.pdf")
     await send_data("Converting Cyrus PDF To Image", "Completed")
     await send_data("Converting Canvas PDF To Image", "Running....")
-    convert_to_image("Cyrus Rugs.pdf")
+    cyrus_invoice = convert_to_image("Cyrus Rugs.pdf")
     await send_data("Converting Canvas PDF To Image", "Completed")
-    # time.sleep(0.5)
-    await send_data("Invoice Generated", "Completed")
-
+    time.sleep(1)
+    await send_data(canvas_invoice, "canvas_invoice")
+    time.sleep(1)
+    await send_data(cyrus_invoice, "cyrus_invoice")
 
 if __name__ == '__main__':
     pass
